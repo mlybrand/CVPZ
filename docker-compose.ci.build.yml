@@ -7,7 +7,9 @@ services:
     volumes:
       - ./src/WebUI:/src
     working_dir: /src
-    command: npm install && ng build
+    command:
+      - npm install
+      - ng build
 
   ci-build-netcore:
     image: microsoft/aspnetcore-build:1.0-1.1
