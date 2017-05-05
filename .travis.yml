@@ -33,7 +33,8 @@ install:
   - docker pull nginx:latest
   
 script:
-  - docker-compose -f docker-compose.ci.build.yml run ci-build
+  - docker-compose -f docker-compose.ci.build.yml run ci-build-netcore
+  - docker-compose -f docker-compose.ci.build.yml run ci-build-angular
   - docker-compose -f docker-compose.yml -f docker-compose.override.yml  -p CVPZ up -d --build
   - docker ps
   - curl http://ci.cvpz.io
