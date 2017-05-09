@@ -3,7 +3,7 @@ version: '2'
 services:
 
   ci-build-angular:
-    image: alexsuch/angular-cli
+    image: ssdug/angular-cli
     volumes:
       - ./src/WebUI:/src
     working_dir: /src

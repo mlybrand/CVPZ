@@ -9,7 +9,7 @@ export class SystemStatusService {
 
   getStatusProfileService(): Observable<boolean> {
     return this.http.get('http://localhost:5002/api/health/ping')
-      .map((res:Response) => res.text() === 'pong')
-      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+      .map((res: Response) => res.text() === 'pong')
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 }
