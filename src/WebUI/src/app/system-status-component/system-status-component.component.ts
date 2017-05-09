@@ -9,13 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SystemStatusComponentComponent implements OnInit {
 
-  profileServiceStatus: boolean = false;
+  profileServiceStatus: boolean = null;
+  projectServiceStatus: boolean = null;
 
   constructor(private systemStatusService: SystemStatusService) { }
 
   ngOnInit() { }
 
   doStatusCheck() {
-    this.systemStatusService.getStatusProfileService().subscribe(x => this.profileServiceStatus = x);
+    this.systemStatusService
+      .getStatusProfileService()
+      .subscribe(x => this.profileServiceStatus = x);
+    this.systemStatusService
+      .getStatusProjectService()
+      .subscribe(x => this.projectServiceStatus = x);
   }
 }

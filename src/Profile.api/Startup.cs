@@ -26,7 +26,6 @@ namespace Profile.api
             // Add framework services.
             services.AddMvc();
 
-
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
