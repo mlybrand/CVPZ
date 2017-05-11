@@ -18,6 +18,11 @@ export class SystemStatusService {
   pingHealthController(url: string): Observable<boolean> {
     return this.http.get(url)
       .map((res: Response) => res.text() === 'pong')
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+      .catch(this.handleError);
+  }
+
+  private handleError(error: Response): Observable<boolean> {
+    console.log(error);
+    return Observable.of(false);
   }
 }
